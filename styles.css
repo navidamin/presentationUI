@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    scroll-snap-type: y mandatory; /* Enable scroll snapping */
+    overflow-y: scroll; /* Enable vertical scrolling */
+    height: 100vh;
+    font-family: 'Raleway', system-ui;
+    font-size: 15px;
+}
+
+.section {
+    height: 100vh; /* Full screen height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start; /* Snap alignment */
+}
+
+#main {
+    /* Define the background image and gradient */
+    background: linear-gradient(to bottom, rgba(229, 235, 234, 0) 70%, rgba(218, 227, 225, 1) 100%), 
+                url('bg1.png');
+    
+    /* Ensure the background image covers the entire element */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #E5EBEA;
+}
+
+.main-container {
+    color: #45503B;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: -20px;
+}
+
+.grid-item {
+    border: none;
+}
+
+.top-left {
+    padding-top: 300px;
+    padding-right: 220px;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    text-align: left;
+}
+
+
+#terminal {
+    background: linear-gradient(180deg, rgba(218, 227, 225, 1) 0%, rgba(229, 235, 234, 1) 10%, rgba(255, 255, 255, 1) 100%);
+}
+
+.container {
+    background-color: transparent; /* Make container transparent */
+    padding: 0;
+    border-radius: 10px;
+    width: calc(100% - 40px);
+    max-width: 70vw;
+    height: calc(100vh - 40px);
+    box-sizing: border-box; /* Ensure padding is included in the height */
+}
+
+.terminal-grid {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    gap: 3px; /* Small gap between terminal and content */
+    height: 100%; /* Ensure the grid takes the full height of the container */
+    box-sizing: border-box; /* Ensure the grid respects the container's box-sizing */
+}
+
+.terminal {
+    background-color: #888B90;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    font-family: monospace;
+    box-sizing: border-box; /* Ensure padding is included in the height */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+    font-size: 15px;
+    flex-grow: 0; /* Prevent the terminal from growing */
+}
+
+.input-line {
+    display: flex;
+    margin-top: 10px;
+}
+
+.prompt {
+    margin-right: 10px;
+}
+
+input {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #fff;
+    font-family: monospace;
+    outline: none;
+    font-size: 15px;
+}
+
+.content {
+    margin-top: 5px;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box; /* Ensure padding is included in the height */
+    flex-grow: 1; /* Allow content to take the remaining space */
+    overflow: hidden; /* Hide overflow during transition */
+    min-height: 40vw;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: 1fr;
+}
+.left {
+    border: 1px solid #000;
+    padding-top: 20px;
+    padding-right: 20px;
+    grid-column: 1 ;
+    grid-row: 1 ;
+    text-align: left;
+}
+
+.right {
+    padding-top: 20px;
+    padding-right: 20px;
+    grid-column: 2;
+    grid-row: 1 ;
+    text-align: center;
+}
+.typing {
+    display: inline-block;
+    white-space: pre;
+    overflow: hidden;
+    border-right: 0.1em solid #0f0;
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #0f0; }
+}
